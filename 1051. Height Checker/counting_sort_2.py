@@ -8,7 +8,7 @@ class Solution:
                    1 to 100. Since counting sort is useful when k (max value in
                    array) and length of array are in similar range.
        Time complexity: O(n)
-       Space complexity: O(1)
+       Space complexity: O(n) for another array 'output'
        Runtime: 36 ms
        Memory: 13.9 MB"""
     def heightChecker(self, heights):

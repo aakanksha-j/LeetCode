@@ -3,7 +3,7 @@ class Solution:
                    mismatch between original and sorted array using a list
                    comprehension and zip.
        Time complexity: O(n)
-       Space complexity: O(1)
+       Space complexity: O(n) for another array sorted heights
        Runtime: 36 ms
        Memory: 14.1 MB"""
     def heightChecker(self, heights):
