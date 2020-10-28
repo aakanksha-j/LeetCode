@@ -1,5 +1,5 @@
 class Solution:
-    """Approach 1: Using a list to store 3 maximum elements. 
+    """Approach 1: Using a list to store 3 maximum elements.
        Time complexity: O(n)
        Space complexity: O(1)
        Runtime: 44 ms
@@ -31,16 +31,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-"""if len(nums)<3:
-    return max(nums)
-   f_max, s_max, t_max = nums[2], nums[1], nums[0]
-   for i in range(len(nums)):
-       print()
-       if n > f_max:
-           f_max = n
-       elif s_max < n < f_max:
-           s_max, t_max = n, s_max
-       elif n < f_max and n > t_max:
-           t_max = n
-    return t_max if t_max < s_max < f_max else f_max"""
