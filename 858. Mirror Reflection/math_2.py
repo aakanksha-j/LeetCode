@@ -1,35 +1,24 @@
+import math
 class Solution:
-    """Approach 1: Using for loop to reduce p and q.
+    """Approach 1: Using GCD from math library to reduce p and q. 
        Time complexity: O(n)
        Space complexity: O(1)
        Runtime: 24 ms
-       Memory: 14.1 MB"""
+       Memory: 14 MB"""
 
     def mirrorReflection(self, p, q):
         if p < 1 or p > 1000 or q < 0 or q > p:
             return 'Invalid input.'
 
-        if q == 0:
-            return 0
+        x = p // math.gcd(p, q)
+        y = q // math.gcd(p, q)
 
-        if p%q == 0: # if divisor is a multiple of dividend, quotient is odd,
-                     # return 1, else 2
-            return 1 if (p/q)%2 else 2
-
-        while p%2 == 0 and q%2 == 0:
-            p //= 2 # output wil contain decimal if / used instead of //
-            q //= 2
-
-        if p%2 != 0 and q%2 != 0: # both are odd, return 1
+        if x % 2 == 1 and y % 2 == 1:
             return 1
-        elif p%2 == 0 and q%2 != 0: # p is even, q is odd, return 2
+        elif x % 2 == 0 and y % 2 == 1:
             return 2
-        elif p%2 != 0 and q%2 == 0: # p is odd, q is even, return 0
+        else:
             return 0
-            
-        # 2 line solution 28 ms 14.2 mb
-        # while p % 2 == 0 and q % 2 == 0: p, q = p // 2, q // 2
-        # return 1 - p % 2 + q % 2
 
 def main():
     p = 2
