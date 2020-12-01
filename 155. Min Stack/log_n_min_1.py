@@ -1,4 +1,6 @@
 class MinStack:
+    """Runtime: 612 ms
+       Memory: 17.9 MB"""
 
     def __init__(self):
         """
