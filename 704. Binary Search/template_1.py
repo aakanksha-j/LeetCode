@@ -7,6 +7,9 @@ class Solution:
     def search(self, nums, target):
         left, right = 0, len(nums)-1
         while left <= right:
+        # why = sign above? left = 0, right = 1, mid = 0 will stop and not go to
+        # scenario left = 1, right = 1, mid = 1 where mid = target and needs to
+        # returned as right answer.
             mid = left + ((right-left)//2)
             if nums[mid] == target:
                 return mid
@@ -20,6 +23,9 @@ def main():
     numbers = [-1,0,3,5,9,12]
     target = 9
     s=Solution()
+    print(s.search(numbers, target))
+    numbers = [-1,0,3,5,9,12]
+    target = 0
     print(s.search(numbers, target))
     numbers = [-1,0,3,5,9,12]
     target = 2
