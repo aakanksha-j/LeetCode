@@ -1,5 +1,5 @@
 class Solution:
-    """Approach 1:
+    """Approach 1: 
        Time complexity: O(n)
        Space complexity: O(1)
        Runtime: 224 ms
