@@ -19,6 +19,7 @@ class Solution:
             while left <= right:
                 mid = left + (right - left) // 2
                 if nums[mid] < nums[mid + 1]: # 7 < 8. 8 is not the smallest element.
+                                              # = not present because duplicates not allowed.
                     if nums[left] <= nums[mid]: # = because left could be equal to mid
                         left = mid + 1
                     else:
