@@ -34,7 +34,7 @@ class Solution:
 
 def main():
     s=Solution()
-    numbers = [1,2,3,4,5]
+    numbers = [1,2,3,4,5] # failed testcase
     target = 2
     print(s.search(numbers, target))
     numbers = [4,5,6,7,0,1,2]
