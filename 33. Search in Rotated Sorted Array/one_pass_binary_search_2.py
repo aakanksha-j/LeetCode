@@ -19,11 +19,11 @@ class Solution:
             mid = (left + right) // 2
             if nums[mid] == target:
                 return mid
-            if nums[left] <= nums[mid]: # = for scenario [3,1] target = 1
+            if nums[left] <= nums[mid]: # when there are no duplicates
                 if nums[left] <= target < nums[mid]:
                     right = mid - 1
                 else:
-                    left = mid + 1
+                    left = mid + 1 # = for scenario [3,1] target = 1, left = mid, we want, left = left + 1, i.e left = mid + 1
             else:
                 if nums[mid] < target <= nums[right]:
                     left = mid + 1
