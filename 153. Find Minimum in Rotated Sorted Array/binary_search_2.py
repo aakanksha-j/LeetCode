@@ -46,3 +46,12 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+"""left, right = 0, len(nums) - 1
+        while left < right: # using template 2
+            mid = left + (right - left) // 2
+            if nums[mid] > nums[right]: # [2,3,1], [2,3,3], [4,3,3], [3,3,3]
+                left = mid + 1
+            else:
+                right = mid
+        return nums[left]"""
