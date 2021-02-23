@@ -1,6 +1,6 @@
 class Solution:
     """Approach 1: https://leetcode.com/problems/group-anagrams/discuss/19202/5-line-Python-solution-easy-to-understand
-       Time complexity: O(NKlogK), where NN is the length of strs, and KK is
+       Time complexity: O(NKlogK), where N is the length of strs, and KK is
                         the maximum length of a string in strs. The outer loop
                         has complexity O(N)O(N) as we iterate through each
                         string. Then, we sort each string in O(KlogK) time.
