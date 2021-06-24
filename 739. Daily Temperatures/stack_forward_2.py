@@ -16,14 +16,14 @@ class Solution:
 
         # initialize variables
         ans = [0] * len(T)
-        warmer_stack= []
+        warmer_stack = []
 
         for i, t in enumerate(T):
             print('i:', i, 'T[i]:', t)
             print(warmer_stack)
             while warmer_stack and t > T[warmer_stack[-1]]:
                 cur = warmer_stack.pop() # cur refers to temp in stack
-                ans[cur] = i - cur # 
+                ans[cur] = i - cur #
             warmer_stack.append(i)
         return ans
 
