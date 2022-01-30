@@ -39,3 +39,42 @@ class Solution:
         pointer.next = None # cut off the cycle at new tail
 
         return head
+
+
+"""# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        # mix of both own approach and leetcode solution
+        # has better runtime and memory
+        # base cases
+        if not head or not head.next or k == 0:
+            return head
+
+        # close the linked list into a ring
+        pointer = head
+        n = 1
+        while pointer.next:
+            pointer = pointer.next
+            n += 1
+
+        if k % n == 0:
+            return head
+
+        pointer.next = head
+
+        # find new tail: (n - (k % n))th node
+        # find new head: (n - (k % n))th node
+        # run for loop from tail
+        for i in range(n - (k%n)):
+            pointer = pointer.next
+        head = pointer.next
+
+        # break the ring
+        pointer.next = None
+
+        return head
+"""
