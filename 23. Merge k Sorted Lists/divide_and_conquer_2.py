@@ -31,3 +31,9 @@ class Solution:
         mid = len(lists) // 2
         l, r = self.mergeKLists(lists[:mid]), self.mergeKLists(lists[mid:])
         return self.merge2lists(l, r)
+
+#[[1,4,5],[1,3,4],[2,6],[2,7,8],[4,5],[7,9,10],[8,8,8]]
+
+# The problem provides sample_input as a list, but when you run the problem via the website, the input is provided as actual ListNode.
+
+# Below is an implementation of that you can use like lists = [ListNode.fromList(x) for x in sample_input]
