@@ -7,7 +7,6 @@
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
         # using floyd cycle detection algorithm
-        # O(N + M) time and O(1) space complexity
 
         # make a ring of linkedlist A
         temp = headA
@@ -25,9 +24,8 @@ class Solution:
                 while slow != slow2:
                     slow = slow.next
                     slow2 = slow2.next
+                temp.next = None
                 return slow
 
-        intersect = get_intersection(temp, headA, headB)
-
         temp.next = None
-        return intersect
+        return None
