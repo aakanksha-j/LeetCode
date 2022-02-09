@@ -32,17 +32,22 @@ class Solution:
         return self.output
 
 
-"""Shorter version
+"""Shorter version - Can use dictionary for faster runtime to fetch the data first.
+https://leetcode.com/problems/find-leaves-of-binary-tree/discuss/83815/Simple-Python-solution-using-dict
+
+But here we directly stored data in output array.
+
 def findLeaves(self, root: Optional[TreeNode]) -> List[List[int]]:
-        # leetcode solution without initializing output in init and dfs method inside findLeaves
+        # leetcode solution without initializing output in init and dfs method inside findLeaves without output in dfs method as argument
+        # dfs with recursion (top down)
 
         output = []
 
-        def dfs(root, output):
+        def dfs(root):
             if not root:
                 return -1
 
-            height = 1 + max(dfs(root.left, output), dfs(root.right, output))
+            height = 1 + max(dfs(root.left), dfs(root.right))
 
             if height >= len(output):
                 output.append([])
@@ -51,6 +56,7 @@ def findLeaves(self, root: Optional[TreeNode]) -> List[List[int]]:
 
             return height
 
-        dfs(root, output)
+        dfs(root)
 
-        return output"""
+        return output
+"""
