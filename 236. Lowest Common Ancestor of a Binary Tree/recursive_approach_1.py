@@ -6,36 +6,29 @@
 #         self.right = None
 
 class Solution:
-    def __init__():
-        self.ans = None
-
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestor(self, root, p, q):
         """
         :type root: TreeNode
         :type p: TreeNode
         :type q: TreeNode
         :rtype: TreeNode
         """
-        def recurse_tree(current_node):
-            # if reached end of a branch, return False
-            if not current_node:
-                return False
 
-            # if the current node is one of p or q
-            mid = current_node == p or current_node == q
+        # recursive solution
 
-            # left recursion
-            left = self.recurse_tree(current_node.left)
+        # time: O(N) - iterate through each node exactly once
+        # space: O(N) - recursive call stack
 
-            # right recursion
-            right = self.recurse_tree(current_node.right)
+        # base case
+        if root == None or root == p or root == q:
+            return root
 
-            # if any two of the three flags become true update answer
-            if mid + left + right >= 2:
-                self.ans = current_node
+        # regenerative case
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
 
-            # return true if either of three flags become true
-            return left or right or mid
+        return root if (left and right) else (left or right)
 
-        recurse_tree(root)
-        return self.ans
+# https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/discuss/65225/4-lines-C%2B%2BJavaPythonRuby
+# https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/discuss/152682/Python-simple-recursive-solution-with-detailed-explanation
+# https://www.youtube.com/watch?v=13m9ZCB8gjw&t=570s&ab_channel=TusharRoy-CodingMadeSimple

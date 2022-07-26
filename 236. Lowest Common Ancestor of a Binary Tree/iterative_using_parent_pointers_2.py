@@ -6,35 +6,40 @@
 #         self.right = None
 
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestor(self, root, p, q):
         """
         :type root: TreeNode
         :type p: TreeNode
         :type q: TreeNode
         :rtype: TreeNode
         """
-        # Stack for tree traversal
-        stack = [root]
-        # Dictionary for parent pointers
+
+        # iterative solution using stack, parent pointer dictionary and ancestors set
+
+        # time: O(N) - iterate through each node exactly once
+        # space: O(N) - stack, parent pointer dictionary and ancestors set
+
         parent = {root: None}
-        # Iterate until we find both the nodes p and q
-        while p not in parent or q not in parent:
+        ancestors = set()
+        stack = [root]
+
+        while p not in parent or q not in parent: # iterate until we find both the nodes
             node = stack.pop()
-            # while traversing the tree, keep saving the parent pointers
-              if node.left:
+            if node.left:
                 parent[node.left] = node
                 stack.append(node.left)
             if node.right:
                 parent[node.right] = node
                 stack.append(node.right)
-        # Ancestors set for node p
-        ancestors = set()
-        # Process all ancestors for node p using parent pointers
+
         while p:
             ancestors.add(p)
-            p = parent[p]
-        # The first ancestor of q which appears in p's ancestor set is their
-        # lowest common ancestor
+            p = parent[p] # key p = value of key p in parent dictionary which is ancestor
+
         while q not in ancestors:
-            q = parent[q]
+            q = parent[q] # first occurrence of p's ancestor is their lowest common ancestor
+
         return q
+
+# https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/discuss/65236/JavaPython-iterative-solution
+# https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/solution/
