@@ -1,4 +1,30 @@
 class Solution:
+"""    # dp - https://leetcode.com/problems/longest-increasing-subsequence/discuss/1326308/C%2B%2BPython-DP-Binary-Search-BIT-Solutions-Picture-explain-O(NlogN)
+
+       def lengthOfLIS(self, nums: List[int]) -> int:
+        n = len(nums)
+        dp = [1] * n
+        for i in range(n):
+            for j in range(i):
+                if nums[i] > nums[j] and dp[i] < dp[j] + 1:
+                    dp[i] = dp[j] + 1
+        return max(dp)
+
+        O(N^2) time and O(N) space
+
+        # dp solution - O(N^2) time, O(N) space - similar to neetcode
+
+        n = len(nums)
+        dp = [1] * n
+
+        for j in range(n):
+            for i in range(j):
+                if nums[j] > nums[i]:
+                    dp[j] = max(dp[j], 1 + dp[i])
+
+        return max(dp)
+        
+"""
     # leetcode solution 3 - greedy with binary search
 
     # time: O(N. log N) - iterate every num in nums and search for location in log N time
@@ -45,5 +71,3 @@ class Solution:
 
         print(lis, lis_idx, prev_num_idx, ans[::-1])
         return len(ans)
-
-        
