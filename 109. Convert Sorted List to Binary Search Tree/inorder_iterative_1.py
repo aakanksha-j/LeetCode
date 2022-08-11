@@ -35,9 +35,10 @@ class Solution:
         while stack:
             start, end, node, status = stack.pop()
 
-            mid = (start + end) // 2
+            mid = (start + end) // 2 # always choose left node as root
 
             if status is False:
+                # inorder traversal
                 if mid + 1 <= end:
                     node.right = TreeNode(-1)
                     stack.append((mid+1, end, node.right, False))
@@ -51,4 +52,3 @@ class Solution:
                 curr = curr.next
 
         return root
-        
