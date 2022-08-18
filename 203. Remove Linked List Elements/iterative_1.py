@@ -5,7 +5,25 @@
 #         self.next = next
 class Solution:
     def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
-        # approach 1
+        # own approach - use dummy and prev, no need to handle edge cases
+        # https://www.youtube.com/watch?v=JI71sxtHTng&ab_channel=NeetCode
+
+        # time: O(N) - number of elements
+        # time: O(1) - no extra space
+
+        dummy = prev = ListNode(next = head)
+        node = head
+
+        while node:
+            if node.val == val:
+                prev.next = node.next
+            else:
+                prev = node
+            node = node.next
+
+        return dummy.next
+
+        """# approach 1
         if not head:
             return
         first, second = head, head.next if head else None
@@ -28,3 +46,4 @@ class Solution:
             else:
                 curr = curr.next
         return head if head.val != val else head.next
+"""
