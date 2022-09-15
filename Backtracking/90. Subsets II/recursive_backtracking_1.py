@@ -4,7 +4,7 @@ class Solution:
 
         # time complexity: O(N.2^N) as for subset either keep or skip that number - 2^N,
         #                  to store subset of len(nums), we need N
-        # space complexity: O(N) for recursion call stack
+        # space complexity: O(N) for recursion call stack, O(N log N) for sorting
 
         # similar to 77 combinations sum,
         # instead of stopping only when length of subset == len(nums)

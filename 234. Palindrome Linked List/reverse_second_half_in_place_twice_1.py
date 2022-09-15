@@ -30,6 +30,8 @@ class Solution:
         print(head)
 
         while fast and fast.next:
+            # fast reaches null for even and last element for odd
+            # slow reaches (3 in 12321) middle element for odd and (3 in 1231)
             # will run until fast.next becomes None (for [1,2,3,4,5,6] will run 3 times)
             # will run until fast.next becomes None (for [1,2,3,4,5,6,7] will run 4 times)
             fast = fast.next.next
@@ -41,7 +43,7 @@ class Solution:
         #print('slow:', slow)
         second_head = self.reverseLinkedlist(slow)
         print(second_head) # two linked lists (1-2-3-4 and 7-6-5-4)
-                          
+
         # step 3: check whether it is a palindrome
         flag = self.checkPalindrome(head, second_head)
         print(second_head)

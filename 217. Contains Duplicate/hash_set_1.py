@@ -25,3 +25,18 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+"""Solved again using sorting and then comparing.
+Time: O(nlogn) for sorting the list
+space: O(n) to store sorted list as we do not modify input.
+
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        num = sorted(nums)
+        prev = num[0]
+
+        for n in num[1:]:
+            print(n)
+            if n == prev:
+                return True
+            prev = n
+        return False"""
