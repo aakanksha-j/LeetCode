@@ -4,7 +4,7 @@ class FreqStack:
     # freq: Counter({5: 3, 7: 2, 4: 1})
     # m: defaultdict(<class 'list'>, {1: [5,7,4], 2: [5, 7], 3: [5]})
     
-    # time: O(N) - to push and pop, go through every element twice
+    # time: O(1) - to push and pop, go through every element twice
     # space: O(N) for dictionaries freq and m
 
     # if element val has n frequency, we will push val n times in m[1], m[2] .. m[n] 
