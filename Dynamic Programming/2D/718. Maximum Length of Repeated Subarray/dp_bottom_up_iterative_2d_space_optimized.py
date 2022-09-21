@@ -1,4 +1,4 @@
-    
+# https://leetcode.com/problems/maximum-length-of-repeated-subarray/discuss/1324248/C%2B%2BPython-DP-KMP-Hashing-Solutions-Clean-and-Concise-O(NlogN)
 
 # similar to paint house, unique paths sums
 # here, array size of dp is n+1 instead of n 
