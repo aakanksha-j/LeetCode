@@ -23,7 +23,7 @@ class BuildingPoint(object):
         self.height = height
         self.is_start = is_start
 
-    def __lt__(self, other):
+    def __lt__(self, other): # less than https://blog.finxter.com/python-__lt__-magic-method/
         if self.point != other.point:
             return self.point < other.point
         else:
