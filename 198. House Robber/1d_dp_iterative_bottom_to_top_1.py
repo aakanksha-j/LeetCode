@@ -17,3 +17,9 @@ class Solution:
             
         return max(o1, o2, o3)
         
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        last_to_last, last = 0, 0
+        for num in nums: last_to_last, last = last, max(last_to_last + num, last)
+        return last
