@@ -37,3 +37,38 @@ class Solution:
 # Therefore, instead of 7, only 5 combinations are possible. However, dp[3]
 # still contains combinations excluding [3] such as [1,2], [2,1], [1,1,1].
 # And when dp[4] calls for adding, 1 and 2 get added to these 3 combinations until comb_sum > num
+
+
+# not combination, we want permutation
+
+class Solution:
+    def combinationSum4(self, nums: List[int], target: int) -> int:
+        # neetcode solution - bottom up dp - dp[target] = sum(dp[target - num]) for num in nums
+        
+        # remember 112 and 211 are counted as 2 different combinations
+        # we can resuse same number infinite times - Unbounded knapsack
+        
+        # time: O(m.n) - m is size of array nums and n is size of target 
+        # space: O(m.n) - for cache
+        
+        # instead of hashmap, using list for cache and doing early optimizations
+        
+        dp = [1] + [0] * target # target = 4, nums = [4] then base case dp[4] = dp[target - num] = dp[4-4] = dp[0] = 1
+        nums.sort()
+        
+        for comb_sum in range(1, target + 1): # since we run from 0 to n, therefore size is n+1, 
+            # start from 1 is important, otherwise everything becomes 0
+            for num in nums:
+                if comb_sum >= num:
+                    dp[comb_sum] += dp[comb_sum - num] 
+                else:
+                    break
+                
+        return dp[target]
+
+
+# in coin change 2, we want combinations 
+# therefore 1st for loop is of coins and 2nd for loop for target starts from coins
+
+
+
