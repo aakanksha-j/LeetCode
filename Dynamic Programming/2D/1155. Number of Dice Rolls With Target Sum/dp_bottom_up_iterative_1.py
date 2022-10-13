@@ -47,3 +47,5 @@ def numRollsToTarget(self, n: int, k: int, target: int) -> int:
 				dp[target_sum] += pre[target_sum - face] 
 
 	return dp[target] % mod
+
+# helpful youtube video link - https://www.youtube.com/watch?v=UiYVToWORMY&t=617s&ab_channel=alGOds
