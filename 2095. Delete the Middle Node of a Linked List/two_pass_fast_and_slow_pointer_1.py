@@ -26,4 +26,51 @@ class Solution:
 # time O(2n)
 # space O(1)
 
-# todo: figure out using single pass
+# using for instead of while:
+def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = fast = slow = ListNode(0, head)
+        
+        count = 0
+        while fast and fast.next:
+            fast = fast.next.next
+            count += 1
+            
+        count = count * 2 if fast else (count*2 - 1)
+        middle_index = count // 2
+        
+        for _ in range(middle_index): # as it is, not -1
+            slow = slow.next
+            
+        slow.next = slow.next.next
+        return dummy.next
+
+# using single pass: fastest
+def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head or not head.next: return None
+        
+        slow = head
+        fast = head.next.next # one step ahead
+        
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            
+        slow.next = slow.next.next
+        return head
+
+
+# using prev:
+def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    if not head.next: return None
+        
+    prev = None
+    fast = slow = head
+    
+    while fast and fast.next:
+        prev = slow
+        slow = slow.next
+        fast = fast.next.next
+    
+    prev.next = slow.next
+    return head
+    
