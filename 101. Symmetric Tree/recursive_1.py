@@ -37,3 +37,25 @@ height of tree. In worst case, the tree is linear and height is O(n).
 
 https://leetcode.com/problems/symmetric-tree/discuss/33050/Recursively-and-iteratively-solution-in-Python
 """
+
+"""
+    # recursive
+    # time O(n)
+    # space O(n), recursive stack
+    
+    def check_symmetry(self, node_left, node_right):
+        # both are None
+        if not node_left and not node_right:
+            return True
+        
+        # one is None
+        if not node_left or not node_right:
+            return False
+        
+        # both have same value, check their child nodes
+        return (node_left.val == node_right.val) and self.check_symmetry(node_left.left, node_right.right) and self.check_symmetry(node_left.right, node_right.left)
+    
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        return self.check_symmetry(root.left, root.right)
+    
+"""
