@@ -72,3 +72,7 @@ class Solution:
             ans = max(ans, dfs(i+1)) # not include condition
             return ans
         return dfs(0)
+    
+# testcases
+# [[21,5],[92,3],[74,2],[39,4],[58,2],[5,5],[49,4],[65,3]] output 157
+# time limit exceeded https://leetcode.com/submissions/detail/949160097/
