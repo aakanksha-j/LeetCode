@@ -1,3 +1,7 @@
+import heapq
+from typing import List
+
+
 class KthLargest:
     def __init__(self, k, nums):
         self.k = k
@@ -29,3 +33,32 @@ Next, every call to add() involves adding an element to heap and potentially rem
 Space complexity: O(N)O(N)
 
 The only extra space we use is the heap. While during add() calls we limit the size of the heap to k, in the constructor we start by converting nums into a heap, which means the heap will initially be of size N."""
+
+
+# 2023 05 23 update 
+class KthLargest:
+
+    def __init__(self, k: int, nums: List[int]):
+        self.k = k
+        self.heap = nums
+        heapq.heapify(self.heap)
+        # print(self.heap)
+        while len(self.heap) > self.k:
+            heapq.heappop(self.heap)
+        # print(self.heap)
+        
+    def add(self, val: int) -> int:
+        heapq.heappush(self.heap, val)
+        # print(self.heap)
+        if len(self.heap) > self.k:   # if len(nums) < k in beginning
+            heapq.heappop(self.heap)
+        # print(self.heap)
+        return self.heap[0]
+
+
+# Your KthLargest object will be instantiated and called as such:
+# obj = KthLargest(k, nums)
+# param_1 = obj.add(val)
+
+# test case ["KthLargest","add","add","add","add","add"]
+# [[1,[]],[-3],[-2],[-4],[0],[4]]
