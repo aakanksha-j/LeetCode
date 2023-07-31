@@ -7,6 +7,7 @@ class TreeNode:
 class Solution:
     def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
         # recursive (top down) solution using memoization
+        # neetcode https://www.youtube.com/watch?v=nZtrZPTTCAo&t=470s&ab_channel=NeetCode
         # time O(2^n)
         # space O(n.2^n/2)
         
