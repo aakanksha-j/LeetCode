@@ -31,4 +31,3 @@ class Solution:
             if i == 0 or nums[i - 1] != nums[i]:
                 self.two_sum(nums, i, output)
         return output
-        
