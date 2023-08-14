@@ -28,7 +28,7 @@ class Solution:
         # using queue bfs - leetcode solution approach 4
         
         # time O(n^(h/2)) where h is height of n-ary tree, the recursive calls form a complete N-ary tree, worst case - we have to traverse entire tree to find the solution, maximum height of tree will be 4, so runtime is O(square root of n)
-        # space O(square root of n) since we keep a list of squares and recursive calls using queue
+        # space O((square root of n)^h) for queue, worst n^2 and O(n) for squares list
         
         # eg. n = 88, 36 + 36 + 16, level 3
         # n = 1, level 1
